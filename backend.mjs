@@ -25,3 +25,8 @@ export async function bySurface(surfaceA) {
     const Surfacerecords = await pb.collection('maison').getFullList({filter: 'surface>'+ surfaceA}) ;
     return Surfacerecords ;
 }
+
+export async function surfaceORprice(surfaceB, p) {
+    const Surfacerecords = await pb.collection('maison').getFullList({filter: `(surface > ${surfaceB}) || (prix < ${p})`});
+    return Surfacerecords;
+}

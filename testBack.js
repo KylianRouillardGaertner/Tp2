@@ -3,6 +3,7 @@ import { OneID } from './backend.mjs'
 import { AllMaisonFavori } from './backend.mjs'
 import { AllMaisonSorted } from './backend.mjs'
 import { bySurface } from './backend.mjs'
+import { surfaceORprice } from './backend.mjs'
 
 try {
     const records = await allMaisons() ;
@@ -34,6 +35,13 @@ try {
 
 try {
     const records = await bySurface('125') ;
+    console.log(JSON.stringify(records, null, 2)) ;
+} catch (e) {
+    console.error(e) ;
+}
+
+try {
+    const records = await surfaceORprice('125', '2000') ;
     console.log(JSON.stringify(records, null, 2)) ;
 } catch (e) {
     console.error(e) ;
