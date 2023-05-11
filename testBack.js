@@ -1,4 +1,4 @@
-import { allMaisons } from './backend.mjs'
+import { FindAgent, allMaisons } from './backend.mjs'
 import { OneID } from './backend.mjs'
 import { AllMaisonFavori } from './backend.mjs'
 import { AllMaisonSorted } from './backend.mjs'
@@ -13,36 +13,43 @@ try {
 }
 
 try {
-    const records = await OneID('5ficuz6wjdc9thu') ;
-    console.log(JSON.stringify(records, null, 2)) ;
+    const Onerecords = await OneID('5ficuz6wjdc9thu') ;
+    console.log(JSON.stringify(Onerecords, null, 2)) ;
 } catch (e) {
     console.error(e) ;
 }
 
 try {
-    const records = await AllMaisonFavori() ;
-    console.log(JSON.stringify(records, null, 2)) ;
+    const AllFavrecords = await AllMaisonFavori() ;
+    console.log(JSON.stringify(AllFavrecords, null, 2)) ;
 } catch (e) {
     console.error(e) ;
 }
 
 try {
-    const records = await AllMaisonSorted() ;
-    console.log(JSON.stringify(records, null, 2)) ;
+    const Sortedrecords = await AllMaisonSorted() ;
+    console.log(JSON.stringify(Sortedrecords, null, 2)) ;
 } catch (e) {
     console.error(e) ;
 }
 
 try {
-    const records = await bySurface('125') ;
-    console.log(JSON.stringify(records, null, 2)) ;
+    const Surfacerecords = await bySurface('125') ;
+    console.log(JSON.stringify(Surfacerecords, null, 2)) ;
 } catch (e) {
     console.error(e) ;
 }
 
 try {
-    const records = await surfaceORprice('125', '2000') ;
-    console.log(JSON.stringify(records, null, 2)) ;
+    const SurfacePricerecords = await surfaceORprice('125', '2000') ;
+    console.log(JSON.stringify(SurfacePricerecords, null, 2)) ;
+} catch (e) {
+    console.error(e) ;
+}
+
+try {
+    const Agentrecords = await FindAgent('5ficuz6wjdc9thu') ;
+    console.log(JSON.stringify(Agentrecords, null, 2)) ;
 } catch (e) {
     console.error(e) ;
 }

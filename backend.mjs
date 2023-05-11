@@ -27,6 +27,13 @@ export async function bySurface(surfaceA) {
 }
 
 export async function surfaceORprice(surfaceB, p) {
-    const Surfacerecords = await pb.collection('maison').getFullList({filter: `(surface > ${surfaceB}) || (prix < ${p})`});
-    return Surfacerecords;
+    const SurfacePricerecords = await pb.collection('maison').getFullList({filter: `(surface > ${surfaceB}) || (prix < ${p})`});
+    return SurfacePricerecords;
+}
+
+export async function FindAgent(idmaison) {
+    const Findrecords = await pb.collection('maison').getOne(idmaison);
+    const IdagentRecords = Findrecords.agent;
+    const DataAgentrecords = await pb.collection('agent').getOne(IdagentRecords);
+    return DataAgentrecords;
 }
