@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "agence",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KylianRouillardGaertner/Tp2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KylianRouillardGaertner/Tp2/issues"
+  },
+  "homepage": "https://github.com/KylianRouillardGaertner/Tp2#readme",
+  "dependencies": {
+    "pocketbase": "^0.14.4"
+  }
+}
