@@ -5,3 +5,8 @@ export async function allMaisons() {
     const records = await pb.collection('maison').getFullList() ;
     return records ;
 }
+
+export async function OneID(id) {
+    const Onerecords = await pb.collection('maison').getOne(id) ;
+    return Onerecords ;
+}
