@@ -20,3 +20,8 @@ export async function AllMaisonSorted() {
     const Sortedrecords = await pb.collection('maison').getFullList({sort: 'prix'}) ;
     return Sortedrecords ;
 }
+
+export async function bySurface(surfaceA) {
+    const Surfacerecords = await pb.collection('maison').getFullList({filter: 'surface>'+ surfaceA}) ;
+    return Surfacerecords ;
+}
