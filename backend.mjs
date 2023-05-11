@@ -12,6 +12,11 @@ export async function OneID(id) {
 }
 
 export async function AllMaisonFavori() {
-    const Onerecords = await pb.collection('maison').getFullList({filter: 'favori=true'}) ;
-    return Onerecords ;
+    const Favrecords = await pb.collection('maison').getFullList({filter: 'favori=true'}) ;
+    return Favrecords ;
+}
+
+export async function AllMaisonSorted() {
+    const Sortedrecords = await pb.collection('maison').getFullList({sort: 'prix'}) ;
+    return Sortedrecords ;
 }
