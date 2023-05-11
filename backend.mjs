@@ -10,3 +10,8 @@ export async function OneID(id) {
     const Onerecords = await pb.collection('maison').getOne(id) ;
     return Onerecords ;
 }
+
+export async function AllMaisonFavori() {
+    const Onerecords = await pb.collection('maison').getFullList({filter: 'favori=true'}) ;
+    return Onerecords ;
+}
