@@ -67,6 +67,13 @@ export async function AllMaisonsAgent() {
 }
 
 export async function allMaisonsByAgentId(idagent) {
-    const Findmaisonrecords = await pb.collection('maison').getFullList({filter: `(agent = '${idagent}')`});
-    return Findmaisonrecords;
+    const Findmaisonidrecords = await pb.collection('maison').getFullList({filter: `(agent = '${idagent}')`});
+    return Findmaisonidrecords;
+}
+
+export async function allMaisonsByAgentName(nameagent) {
+    const Findidrecords = await pb.collection('agent').getFullList({filter: `(nom = '${nameagent}')`});
+    const idagent = Findidrecords[0].id;
+    const Findmaisonnamerecords = await pb.collection('maison').getFullList({filter: `(agent = '${idagent}')`});
+    return Findmaisonnamerecords;
 }
