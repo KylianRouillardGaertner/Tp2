@@ -5,6 +5,7 @@ import { AllMaisonSorted } from './backend.mjs'
 import { bySurface } from './backend.mjs'
 import { surfaceORprice } from './backend.mjs'
 import { AllMaisonsAgent } from './backend.mjs'
+import { allMaisonsByAgentId } from './backend.mjs'
 
 try {
     const records = await allMaisons() ;
@@ -57,6 +58,13 @@ try {
 
 try {
     const allrecords = await AllMaisonsAgent() ;
+    console.log(JSON.stringify(allrecords, null, 2)) ;
+} catch (e) {
+    console.error(e) ;
+}
+
+try {
+    const allrecords = await allMaisonsByAgentId('njh7ntk76gxsa2d') ;
     console.log(JSON.stringify(allrecords, null, 2)) ;
 } catch (e) {
     console.error(e) ;

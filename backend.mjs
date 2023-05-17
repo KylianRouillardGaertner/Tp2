@@ -65,3 +65,8 @@ export async function AllMaisonsAgent() {
     }
     return maisonsAgents;
 }
+
+export async function allMaisonsByAgentId(idagent) {
+    const Findmaisonrecords = await pb.collection('maison').getFullList({filter: `(agent = '${idagent}')`});
+    return Findmaisonrecords;
+}
