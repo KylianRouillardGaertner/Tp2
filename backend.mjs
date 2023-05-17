@@ -37,3 +37,31 @@ export async function FindAgent(idmaison) {
     const DataAgentrecords = await pb.collection('agent').getOne(IdagentRecords);
     return DataAgentrecords;
 }
+
+export async function AllMaisonsAgent() {
+    const maisons = await pb.collection('maison').getFullList();
+    const maisonsAgents = [];
+    for (const actualhouse of maisons) {
+        const agentId = actualhouse.agent;
+        const agent = await pb.collection('agent').getOne(agentId);
+        const maisonAgent = {
+          id: actualhouse.id,
+          nomMaison: actualhouse.nomMaison,
+          prix: actualhouse.prix,
+          images: actualhouse.images,
+          nbChambres: actualhouse.nbChambres,
+          nbSdb: actualhouse.nbSdb,
+          adresse: actualhouse.adresse,
+          favori: actualhouse.favori,
+          surface: actualhouse.surface,
+          agent: {
+            id: agent.id,
+            nom: agent.nom,
+            prenom: agent.prenom,
+            email: agent.email
+          }
+        };
+        maisonsAgents.push(maisonAgent);
+    }
+    return maisonsAgents;
+}
